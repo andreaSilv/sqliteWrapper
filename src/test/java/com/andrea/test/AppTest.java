@@ -6,12 +6,9 @@ import java.util.ArrayList;
 import java.util.Map;
 
 import com.andrea.wrapper.SQLiteWrapper;
-import com.google.common.collect.Maps;
 
 import junit.framework.TestCase;
-import net.bytebuddy.ByteBuddy;
-import net.bytebuddy.implementation.FixedValue;
-import net.bytebuddy.matcher.ElementMatchers;
+
 
 /**
  * Unit test for simple App.

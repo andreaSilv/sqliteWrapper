@@ -10,4 +10,6 @@ All methods are static and i wrote some basic test.
 External library used:
 - Google Guava (for HashMap)
 
+To make life more easy I committed also ".project" of Eclipse oxygen
+
 **EVERY CONTRIBUTION IS WELCOME**
