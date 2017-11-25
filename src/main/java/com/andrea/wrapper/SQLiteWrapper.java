@@ -26,10 +26,8 @@ public class SQLiteWrapper {
 			Map<String,Object> record = resultsetToMap(resultSet);
 			entries.add(record);
 		}
-
 		return entries;
 	}
-
 
 	public static ResultSet extract(String query) throws ClassNotFoundException, SQLException {
 
@@ -57,10 +55,11 @@ public class SQLiteWrapper {
 	public static void closeDb() throws SQLException {
 		statement.close();
 		connection.close();
+		statement = null;
+		connection = null;
 	}
 
 	//---------------START-UTILS	
-
 	private static Map<String, Object> resultsetToMap(ResultSet resultSet) throws SQLException{
 		Map<String, Object> record = Maps.newHashMap();
 		
