@@ -9,6 +9,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Map;
 
+import com.andrea.util.Util;
 import com.google.common.collect.Maps;
 
 public class SQLiteWrapper {
@@ -21,14 +22,14 @@ public class SQLiteWrapper {
 	public static ArrayList<Map<String,Object>> extractHashMap(String query) throws ClassNotFoundException, SQLException {
 		ResultSet resultSet = extract(query);
 		ArrayList<Map<String,Object>> entries = new ArrayList<Map<String,Object>>();
-
+		
 		while(resultSet.next()) {
-			Map<String,Object> record = resultsetToMap(resultSet);
+			Map<String,Object> record = Util.convertResultsetToMap(resultSet);
 			entries.add(record);
 		}
 		return entries;
 	}
-
+	
 	public static ResultSet extract(String query) throws ClassNotFoundException, SQLException {
 
 		if ( isConnectionOpened() ) {
@@ -54,27 +55,13 @@ public class SQLiteWrapper {
 
 	public static void closeDb() throws SQLException {
 		statement.close();
-		connection.close();
 		statement = null;
+
+		connection.close();
 		connection = null;
 	}
 
 	//---------------START-UTILS	
-	private static Map<String, Object> resultsetToMap(ResultSet resultSet) throws SQLException{
-		Map<String, Object> record = Maps.newHashMap();
-		
-		ResultSetMetaData metadata = resultSet.getMetaData();
-		int columnCount = metadata.getColumnCount();    
-		for (int i = 1; i <= columnCount; i++) {
-			
-			String columnName = metadata.getColumnName(i);
-			Object value = resultSet.getObject(columnName);
-			
-			record.put(columnName, value);      
-		}
-		return record;
-	}
-
 	private static boolean isConnectionOpened() {
 		return connection == null;
 	}

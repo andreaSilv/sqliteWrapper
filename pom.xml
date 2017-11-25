@@ -4,7 +4,7 @@
 
 	<groupId>com.andrea</groupId>
 	<artifactId>test</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.4.1</version>
 	<packaging>jar</packaging>
 
 	<name>test</name>
