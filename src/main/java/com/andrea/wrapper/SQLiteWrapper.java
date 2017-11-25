@@ -16,6 +16,7 @@ public class SQLiteWrapper {
 	public static String driverClassName = "org.sqlite.JDBC";
 	public static String driverConnectionName = "jdbc:sqlite:sample.db";
 	public static int queryTimeOut = 30;
+	
 	public static Connection connection = null;
 	public static Statement statement = null;
 
